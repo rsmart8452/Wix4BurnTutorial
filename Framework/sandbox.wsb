@@ -1,0 +1,8 @@
+<Configuration>
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>.</HostFolder>
+      <SandboxFolder>c:\WiX Burn Tutorial</SandboxFolder>
+    </MappedFolder>
+  </MappedFolders>
+</Configuration>

@@ -1,0 +1,41 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
+
+  <?define UpgradeCode="{27decd7a-6d63-4a99-b49e-2f781612e0b4}" ?>
+  <?define ProductVersion="1.0.0.0" ?>
+  <?define ProductName="HelloWorld" ?>
+  <?define Manufacturer="Richard Martin" ?>
+
+  <Bundle
+    Name           = "$(var.ProductName) v$(var.ProductVersion)"
+    Version        = "$(var.ProductVersion)"
+    Manufacturer   = "$(var.Manufacturer)"
+    UpgradeCode    = "$(var.UpgradeCode)"
+    DisableModify  = "yes"
+    IconSourceFile = "..\..\Assets\Icon.ico"
+    >
+
+    <BootstrapperApplication bal:CommandLineVariables="caseInsensitive">
+      <bal:WixDotNetCoreBootstrapperApplicationHost SelfContainedDeployment="yes" />
+      <PayloadGroupRef Id="BA.publish" />
+    </BootstrapperApplication>
+
+    <Log Prefix =".\$(var.ProductName)_$(var.ProductVersion)" Extension="log" />
+    <Variable Name="SampleOption" Type="string" Value="" />
+
+    <Chain>
+      <MsiPackage
+        Id                = "HW.Install"
+        SourceFile        = "..\..\Assets\HelloWorldPackage.msi"
+        Visible           = "no"
+        Compressed        = "yes"
+        DisplayName       = "$(var.ProductName)"
+        Description       = "Demo app"
+        Vital             = "yes"
+        bal:PrereqPackage = "yes"
+        >
+        <MsiProperty Name='SAMPLE' Value='[SampleOption]'/>
+      </MsiPackage>
+    </Chain>
+
+  </Bundle>
+</Wix>

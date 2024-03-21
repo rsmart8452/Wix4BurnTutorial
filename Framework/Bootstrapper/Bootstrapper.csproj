@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <Platforms>x64</Platforms>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Bootstrapper Overview.md" />
+    <None Remove="Bootstrapper.csproj_.md" />
+    <None Remove="BootstrapperApp.cs_.md" />
+    <None Remove="Models\Model.cs_.md" />
+    <None Remove="Models\State\AppState.cs_.md" />
+    <None Remove="Models\WpfFacade.cs_.md" />
+    <None Remove="Phases\ApplyPhase.cs_.md" />
+    <None Remove="Phases\CancelHandler.cs_.md" />
+    <None Remove="Phases\DetectPhase.cs_.md" />
+    <None Remove="Phases\Phases Overview.md" />
+    <None Remove="Phases\PlanPhase.cs_.md" />
+    <None Remove="Phases\ProgressHandler.cs_.md" />
+    <None Remove="Phases\README.md" />
+    <None Remove="ViewModels\ConfigViewModel.cs_.md" />
+    <None Remove="ViewModels\ShellViewModel.cs_.md" />
+    <None Remove="WixToolset.Mba.Host.config_.md" />
+    <None Remove="WpfBaFactory.cs_.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="..\..\Assets\Icon.ico" Link="Assets\Icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Mba.Core" Version="4.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="WixToolset.Mba.Host.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

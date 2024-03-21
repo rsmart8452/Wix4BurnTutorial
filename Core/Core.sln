@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09D54CBE-93C6-45CD-9048-E1D1C5FA2DE5}"
+	ProjectSection(SolutionItems) = preProject
+		sandbox.wsb = sandbox.wsb
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootstrapper", "Bootstrapper\Bootstrapper.csproj", "{168ADFBB-5E88-4B54-BC26-1F2B2E01F196}"
+EndProject
+Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "Bundle", "Bundle\Bundle.wixproj", "{C0A31790-616E-4911-970C-A1534F8FB2B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{168ADFBB-5E88-4B54-BC26-1F2B2E01F196}.Debug|x64.ActiveCfg = Debug|x64
+		{168ADFBB-5E88-4B54-BC26-1F2B2E01F196}.Debug|x64.Build.0 = Debug|x64
+		{168ADFBB-5E88-4B54-BC26-1F2B2E01F196}.Release|x64.ActiveCfg = Release|x64
+		{168ADFBB-5E88-4B54-BC26-1F2B2E01F196}.Release|x64.Build.0 = Release|x64
+		{C0A31790-616E-4911-970C-A1534F8FB2B7}.Debug|x64.ActiveCfg = Debug|x64
+		{C0A31790-616E-4911-970C-A1534F8FB2B7}.Debug|x64.Build.0 = Debug|x64
+		{C0A31790-616E-4911-970C-A1534F8FB2B7}.Release|x64.ActiveCfg = Release|x64
+		{C0A31790-616E-4911-970C-A1534F8FB2B7}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F90CE4D-25D2-43C9-B288-26317661C68D}
+	EndGlobalSection
+EndGlobal

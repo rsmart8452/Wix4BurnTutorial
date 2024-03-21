@@ -1,0 +1,17 @@
+﻿<Project Sdk="WixToolset.Sdk/4.0.4">
+  
+  <PropertyGroup>
+    <OutputType>Bundle</OutputType>
+    <Platforms>x64</Platforms>
+    <InstallerPlatform>x64</InstallerPlatform>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Bal.wixext" Version="4.*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Bootstrapper\Bootstrapper.csproj" />
+  </ItemGroup>
+  
+</Project>

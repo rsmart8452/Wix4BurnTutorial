@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <SelfContained>true</SelfContained>
+    <RollForward>Major</RollForward>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Bootstrapper.csproj_.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Framework\Bootstrapper\BootstrapperApp.cs" Link="BootstrapperApp.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Logger.cs" Link="Models\Logger.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Model.cs" Link="Models\Model.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\State\AppState.cs" Link="Models\State\AppState.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\State\ProgressReport.cs" Link="Models\State\ProgressReport.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\BaState.cs" Link="Models\Util\BaState.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\BundleState.cs" Link="Models\Util\BundleState.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\Constants.cs" Link="Models\Util\Constants.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\DetectionState.cs" Link="Models\Util\DetectionState.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\DetectPhaseCompleteEventArgs.cs" Link="Models\Util\DetectPhaseCompleteEventArgs.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\ErrorHelper.cs" Link="Models\Util\ErrorHelper.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\InstallerVariableNotFoundException.cs" Link="Models\Util\InstallerVariableNotFoundException.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\PhaseException.cs" Link="Models\Util\PhaseException.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\UpdateDiscoveryState.cs" Link="Models\Util\UpdateDiscoveryState.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Models\WpfFacade.cs" Link="Models\WpfFacade.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Phases\ApplyPhase.cs" Link="Phases\ApplyPhase.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Phases\CancelHandler.cs" Link="Phases\CancelHandler.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Phases\DetectPhase.cs" Link="Phases\DetectPhase.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Phases\LoggingApplyPhase.cs" Link="Phases\LoggingApplyPhase.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Phases\LoggingDetectPhase.cs" Link="Phases\LoggingDetectPhase.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Phases\LoggingPlanPhase.cs" Link="Phases\LoggingPlanPhase.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Phases\PlanPhase.cs" Link="Phases\PlanPhase.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Phases\ProgressHandler.cs" Link="Phases\ProgressHandler.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\CancelViewModel.cs" Link="ViewModels\CancelViewModel.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\ConfigViewModel.cs" Link="ViewModels\ConfigViewModel.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\ProgressViewModel.cs" Link="ViewModels\ProgressViewModel.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\ShellViewModel.cs" Link="ViewModels\ShellViewModel.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\Util\BooleanVisibilityConverter.cs" Link="ViewModels\Util\BooleanVisibilityConverter.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\Util\CommandManagerHelper.cs" Link="ViewModels\Util\CommandManagerHelper.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\Util\DelegateCommand.cs" Link="ViewModels\Util\DelegateCommand.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\Util\IDelegateCommand.cs" Link="ViewModels\Util\IDelegateCommand.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\Util\PropertyChanger.cs" Link="ViewModels\Util\PropertyChanger.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\ViewModels\Util\ViewModelBase.cs" Link="ViewModels\Util\ViewModelBase.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Views\ConfigView.xaml.cs" Link="Views\ConfigView.xaml.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Views\ProgressView.xaml.cs" Link="Views\ProgressView.xaml.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\Views\ShellView.xaml.cs" Link="Views\ShellView.xaml.cs" />
+    <Compile Include="..\..\Framework\Bootstrapper\WpfBaFactory.cs" Link="WpfBaFactory.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="..\..\Assets\Icon.ico" Link="Assets\Icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Dnc.HostGenerator" Version="4.*" />
+    <PackageReference Include="WixToolset.Mba.Core" Version="4.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="WixToolset.Mba.Host.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="..\..\Framework\Bootstrapper\Views\ConfigView.xaml" Link="Views\ConfigView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\..\Framework\Bootstrapper\Views\ProgressView.xaml" Link="Views\ProgressView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\..\Framework\Bootstrapper\Views\ShellView.xaml" Link="Views\ShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+</Project>
