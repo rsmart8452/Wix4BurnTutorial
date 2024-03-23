@@ -1,18 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
     <Platforms>x64</Platforms>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <SelfContained>true</SelfContained>
     <RollForward>Major</RollForward>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Bootstrapper.csproj_.md" />
-  </ItemGroup>
 
   <ItemGroup>
     <Compile Include="..\..\Framework\Bootstrapper\BootstrapperApp.cs" Link="BootstrapperApp.cs" />
