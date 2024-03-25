@@ -6,7 +6,7 @@
   <?define Manufacturer="Richard Martin" ?>
 
   <Bundle
-    Name           = "$(var.ProductName) v$(var.ProductVersion)"
+    Name           = "$(var.ProductName)"
     Version        = "$(var.ProductVersion)"
     Manufacturer   = "$(var.Manufacturer)"
     UpgradeCode    = "$(var.UpgradeCode)"
