@@ -1,0 +1,36 @@
+﻿<Project Sdk="WixToolset.Sdk/5.0.0">
+  
+  <PropertyGroup>
+    <OutputType>Bundle</OutputType>
+    <TargetExt>.exe</TargetExt>
+    <Platforms>x64</Platforms>
+    <InstallerPlatform>x64</InstallerPlatform>
+    <HarvestDirectoryAdditionalOptions>-generate payloadgroup</HarvestDirectoryAdditionalOptions>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <BindInputPaths Include="..\Bootstrapper\bin\publish" />
+    <HarvestDirectory Include="..\Bootstrapper\bin\publish">
+      <DirectoryRefId>BA.publish</DirectoryRefId>
+      <Transforms>ba.xslt</Transforms>
+    </HarvestDirectory>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="ba.xslt" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Bal.wixext" Version="5.*" />
+    <PackageReference Include="WixToolset.Heat" Version="5.*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Bootstrapper\Bootstrapper.csproj" />
+  </ItemGroup>
+  
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="dotnet publish &quot;..\Bootstrapper\Bootstrapper.csproj&quot; -o &quot;..\Bootstrapper\bin\publish&quot; -c $(Configuration) --self-contained true" />
+  </Target>
+  
+</Project>

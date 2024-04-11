@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "Bundle", "Bundle\Bundle.wixproj", "{D388B740-41D1-4A28-886B-468A1148CBA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{52E51401-D9BB-44A1-A4B9-47BBF658BC53}"
+	ProjectSection(SolutionItems) = preProject
+		sandbox.wsb = sandbox.wsb
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootstrapper", "Bootstrapper\Bootstrapper.csproj", "{7024FF43-2B57-477C-8AC8-E108E260C610}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D388B740-41D1-4A28-886B-468A1148CBA3}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{D388B740-41D1-4A28-886B-468A1148CBA3}.Debug|Any CPU.Build.0 = Debug|x64
+		{D388B740-41D1-4A28-886B-468A1148CBA3}.Debug|x64.ActiveCfg = Debug|x64
+		{D388B740-41D1-4A28-886B-468A1148CBA3}.Debug|x64.Build.0 = Debug|x64
+		{D388B740-41D1-4A28-886B-468A1148CBA3}.Release|Any CPU.ActiveCfg = Release|x64
+		{D388B740-41D1-4A28-886B-468A1148CBA3}.Release|Any CPU.Build.0 = Release|x64
+		{D388B740-41D1-4A28-886B-468A1148CBA3}.Release|x64.ActiveCfg = Release|x64
+		{D388B740-41D1-4A28-886B-468A1148CBA3}.Release|x64.Build.0 = Release|x64
+		{7024FF43-2B57-477C-8AC8-E108E260C610}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{7024FF43-2B57-477C-8AC8-E108E260C610}.Debug|Any CPU.Build.0 = Debug|x64
+		{7024FF43-2B57-477C-8AC8-E108E260C610}.Debug|x64.ActiveCfg = Debug|x64
+		{7024FF43-2B57-477C-8AC8-E108E260C610}.Debug|x64.Build.0 = Debug|x64
+		{7024FF43-2B57-477C-8AC8-E108E260C610}.Release|Any CPU.ActiveCfg = Release|x64
+		{7024FF43-2B57-477C-8AC8-E108E260C610}.Release|Any CPU.Build.0 = Release|x64
+		{7024FF43-2B57-477C-8AC8-E108E260C610}.Release|x64.ActiveCfg = Release|x64
+		{7024FF43-2B57-477C-8AC8-E108E260C610}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56E73E9E-93E4-4177-9DC0-14DD512FBA2C}
+	EndGlobalSection
+EndGlobal

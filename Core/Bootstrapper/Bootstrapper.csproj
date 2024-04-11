@@ -24,7 +24,6 @@
     <Compile Include="..\..\Framework\Bootstrapper\Models\Util\ErrorHelper.cs" Link="Models\Util\ErrorHelper.cs" />
     <Compile Include="..\..\Framework\Bootstrapper\Models\Util\InstallerVariableNotFoundException.cs" Link="Models\Util\InstallerVariableNotFoundException.cs" />
     <Compile Include="..\..\Framework\Bootstrapper\Models\Util\PhaseException.cs" Link="Models\Util\PhaseException.cs" />
-    <Compile Include="..\..\Framework\Bootstrapper\Models\Util\UpdateDiscoveryState.cs" Link="Models\Util\UpdateDiscoveryState.cs" />
     <Compile Include="..\..\Framework\Bootstrapper\Models\WpfFacade.cs" Link="Models\WpfFacade.cs" />
     <Compile Include="..\..\Framework\Bootstrapper\Phases\ApplyPhase.cs" Link="Phases\ApplyPhase.cs" />
     <Compile Include="..\..\Framework\Bootstrapper\Phases\CancelHandler.cs" Link="Phases\CancelHandler.cs" />

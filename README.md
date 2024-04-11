@@ -2,6 +2,12 @@
 
 Welcome to this tutorial on using Burn in WiX 4 to build a software installation bundle with your own custom .NET bootstrapper application. It includes two working solutions, one targeting .NET 4.6.2 and another for .NET 8.0.
 
+## WiX 5
+
+The tutorial has been updated to demonstrate the changes needed to support a bootstrapper application for WiX 5.
+
+[This entry](https://github.com/rsmart8452/Wix4BurnTutorial/wiki/Wix-5) in the wiki covers the small changes you'll want to be aware of. For the most part, the v4 tutorial applies to v5.
+
 ## Audience
 
 This is for intermediate to advanced .NET and WiX users. You should also have a basic understanding of the workings of Windows Installer and the databases (MSI files) it uses to deploy software.
