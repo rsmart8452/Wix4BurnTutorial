@@ -17,7 +17,7 @@
 
       <bal:WixManagedBootstrapperApplicationHost />
       
-      <Payload SourceFile="$(var.Bootstrapper.TargetDir)Bootstrapper.dll" bal:BAFactoryAssembly="yes"/>
+      <Payload SourceFile="$(var.Bootstrapper.TargetFileName)" bal:BAFactoryAssembly="yes"/>
       <Payload SourceFile="$(var.Bootstrapper.TargetDir)mbanative.dll"/>
       <Payload SourceFile="$(var.Bootstrapper.TargetDir)WixToolset.Mba.Core.dll"/>
       <Payload SourceFile="$(var.Bootstrapper.TargetDir)WixToolset.Mba.Host.config"/>

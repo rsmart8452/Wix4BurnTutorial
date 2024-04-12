@@ -7,12 +7,20 @@ namespace Bootstrapper;
 
 internal class WpfBaFactory
 {
-  public Model Create(IEngine engine, IBootstrapperCommand commandInfo)
+  public Model Create(IDefaultBootstrapperApplication ba, IEngine engine, IBootstrapperCommand commandInfo)
   {
     try
     {
       var uiFacade = new WpfFacade(new Log(engine), commandInfo.Display);
       var model = new Model(engine, commandInfo, uiFacade);
+
+      SubscribeCancelEvents(ba, model);
+      SubscribeProgressEvents(ba, model);
+
+      SubscribeDetectEvents(ba, model);
+      SubscribePlanEvents(ba, model);
+      SubscribeApplyEvents(ba, model);
+
       model.Log.RemoveEmbeddedLog();
       return model;
     }
@@ -23,7 +31,7 @@ internal class WpfBaFactory
     }
   }
 
-  public void SubscribeDetectEvents(IDefaultBootstrapperApplication ba, Model model)
+  private void SubscribeDetectEvents(IDefaultBootstrapperApplication ba, Model model)
   {
     // Adds a lot of logging, but reviewing the output can be educational
     var debug = new LoggingDetectPhase(model);
@@ -33,7 +41,7 @@ internal class WpfBaFactory
 #if DEBUG
     var detectPhase = debug;
 #else
-      var detectPhase = release;
+    var detectPhase = release;
 #endif
 
     detectPhase.DetectPhaseComplete += model.UiFacade.OnDetectPhaseComplete;
@@ -56,7 +64,7 @@ internal class WpfBaFactory
     ba.DetectMsiFeature += detectPhase.OnDetectMsiFeature;
   }
 
-  public void SubscribePlanEvents(IDefaultBootstrapperApplication ba, Model model)
+  private void SubscribePlanEvents(IDefaultBootstrapperApplication ba, Model model)
   {
     // Adds a lot of logging, but reviewing the output can be educational
     var debug = new LoggingPlanPhase(model);
@@ -65,7 +73,7 @@ internal class WpfBaFactory
 #if DEBUG
     var planPhase = debug;
 #else
-      var planPhase = release;
+    var planPhase = release;
 #endif
 
     planPhase.PlanPhaseFailed += model.UiFacade.OnApplyPhaseComplete;
@@ -88,7 +96,7 @@ internal class WpfBaFactory
     ba.PlannedCompatiblePackage += planPhase.OnPlannedCompatiblePackage;
   }
 
-  public void SubscribeApplyEvents(IDefaultBootstrapperApplication ba, Model model)
+  private void SubscribeApplyEvents(IDefaultBootstrapperApplication ba, Model model)
   {
     // Adds a lot of logging, but reviewing the output can be educational
     var debug = new LoggingApplyPhase(model);
@@ -97,7 +105,7 @@ internal class WpfBaFactory
 #if DEBUG
     var applyPhase = debug;
 #else
-      var applyPhase = release;
+    var applyPhase = release;
 #endif
 
     applyPhase.ApplyPhaseComplete += model.UiFacade.OnApplyPhaseComplete;
@@ -156,7 +164,7 @@ internal class WpfBaFactory
     ba.Error += applyPhase.OnError;
   }
 
-  public void SubscribeCancelEvents(IDefaultBootstrapperApplication ba, Model model)
+  private void SubscribeCancelEvents(IDefaultBootstrapperApplication ba, Model model)
   {
     var cancelHandler = new CancelHandler(model);
 
@@ -198,7 +206,7 @@ internal class WpfBaFactory
     ba.ExecuteFilesInUse += cancelHandler.CheckResult;
   }
 
-  public void SubscribeProgressEvents(IDefaultBootstrapperApplication ba, Model model)
+  private void SubscribeProgressEvents(IDefaultBootstrapperApplication ba, Model model)
   {
     var progressHandler = new ProgressHandler(model);
 

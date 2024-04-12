@@ -13,24 +13,17 @@ internal class BootstrapperApp : BootstrapperApplication
 
   protected override void OnCreate(CreateEventArgs args)
   {
+    base.OnCreate(args);
+
     try
     {
-      // Let base populate args before accessing its members
-      base.OnCreate(args);
-
       var factory = new WpfBaFactory();
-      _model = factory.Create(args.Engine, args.Command);
-      factory.SubscribeCancelEvents(this, _model);
-      factory.SubscribeProgressEvents(this, _model);
-      factory.SubscribeDetectEvents(this, _model);
-      factory.SubscribePlanEvents(this, _model);
-      factory.SubscribeApplyEvents(this, _model);
+      _model = factory.Create(this, args.Engine, args.Command);
     }
     catch (Exception ex)
     {
-      var hResult = ex.HResult;
-      ExitCode = ErrorHelper.HResultToWin32(hResult);
-      engine.Log(LogLevel.Error, ex.ToString());
+      ExitCode = ErrorHelper.HResultToWin32(ex.HResult);
+      args.Engine.Log(LogLevel.Error, ex.ToString());
       throw;
     }
   }
